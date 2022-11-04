@@ -275,7 +275,7 @@
                             class=" py-3 px-5 w-full text-white font-semibold border border-indigo-700 rounded-xl focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200">Create
                             New Task</a>
                         </li>
-                        @foreach ($tasks as $task)
+                        @foreach ($userTasks as $task)
                         <li>
                           <a href="/tasks/{{$task->id}}" class="mt-3 pt-3  w-full flex ">
                             <span class="pr-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
