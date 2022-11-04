@@ -17,12 +17,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        // return $user->id;
-        // $tasks = User::find(2)->tasks;
-        // $user = Task::find(1)->user;
-        $tasks = User::find($user->id)->tasks;
-        // return $tasks;
+        
         return view('tasks/all-task');
     }
 
@@ -53,9 +48,13 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Task $task, $id)
     {
-        return view('tasks/show-task');
+        $task = Task::find($id)->first();
+        
+        return view('tasks/show-task', [
+            "task" => $task
+        ]);
     }
 
     /**
@@ -87,8 +86,10 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Task $task, $id)
     {
-        //
+        $task = Task::find($id)->first();
+        $task->delete();
+        return redirect('/tasks');
     }
 }

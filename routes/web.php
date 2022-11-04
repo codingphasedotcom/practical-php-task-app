@@ -29,7 +29,7 @@ Route::group([
     Route::get('/{id}', [TaskController::class, 'show']);
     Route::get('/{id}/edit', [TaskController::class, 'edit']);
     Route::put('/{id}', [TaskController::class, 'update']);
-    Route::delete('/', [TaskController::class, 'destroy']);
+    Route::delete('/{id}', [TaskController::class, 'destroy']);
 });
 
 

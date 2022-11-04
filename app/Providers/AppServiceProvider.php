@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['layouts.dashboard-layout'], function($view){
+        View::composer(['layouts.dashboard-layout', 'tasks.all-task'], function($view){
             $user = Auth::user();
             $view->with('userTasks', User::find($user->id)->tasks);
         });
