@@ -23,9 +23,7 @@ class TaskController extends Controller
         // $user = Task::find(1)->user;
         $tasks = User::find($user->id)->tasks;
         // return $tasks;
-        return view('tasks/all-task', [
-            "tasks" => $tasks
-        ]);
+        return view('tasks/all-task', );
     }
 
     /**
